@@ -1,0 +1,9 @@
+---
+# tasks for omero-common
+
+- name: omero-common | create parent directory
+  become: yes
+  file:
+    path: "{{ omero_common_basedir }}"
+    recurse: yes
+    state: directory
