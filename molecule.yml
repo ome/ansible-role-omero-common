@@ -18,11 +18,28 @@ vagrant:
   instances:
     - name: omero-common
 
+# The two docker containers test that the "reload systemd" handler can be
+# notified regardless of systemd status
+# At the moment you should ideally verify this by checking the output of
+# molecule test:
+
+# RUNNING HANDLER [ansible-role-omero-common : reload systemd] *******************
+# skipping: [omero-common]
+# changed: [omero-common-systemd]
+#
+# PLAY RECAP *********************************************************************
+# omero-common               : ok=3    changed=2    unreachable=0    failed=0
+# omero-common-systemd       : ok=4    changed=3    unreachable=0    failed=0
+
 docker:
   containers:
   - name: omero-common
     image: centos
     image_version: 7
+  - name: omero-common-systemd
+    image: centos/systemd
+    image_version: latest
+    privileged: yes
 
 verifier:
   name: testinfra

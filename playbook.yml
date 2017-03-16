@@ -2,3 +2,11 @@
 - hosts: all
   roles:
     - role: ansible-role-omero-common
+
+  tasks:
+    - name: test reload systemd handler
+      file:
+        path: /tmp/notify-systemd-handler
+        state: directory
+      notify:
+        - reload systemd
