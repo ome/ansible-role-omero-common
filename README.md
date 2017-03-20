@@ -1,7 +1,7 @@
 OMERO Common
-==========
+============
 
-Common variables and tasks for OMERO applications.
+Common variables and handlers for other OMERO application Ansible roles.
 
 
 Role Variables
