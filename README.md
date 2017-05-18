@@ -1,6 +1,9 @@
 OMERO Common
 ============
 
+[![Build Status](https://travis-ci.org/openmicroscopy/ansible-role-omero-common.svg)](https://travis-ci.org/openmicroscopy/ansible-role-omero-common)
+[![Ansible Role](https://img.shields.io/ansible/role/17248.svg)](https://galaxy.ansible.com/openmicroscopy/omero-common/)
+
 Common variables and handlers for other OMERO application Ansible roles.
 
 
