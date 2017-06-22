@@ -4,9 +4,18 @@
     - role: ansible-role-omero-common
 
   tasks:
+
     - name: test reload systemd handler
       file:
         path: /tmp/notify-systemd-handler
         state: directory
       notify:
         - reload systemd
+
+    # Should be a noop
+    - name: test restart handler without omero-server
+      file:
+        path: /tmp/notify-omero-server-handler
+        state: directory
+      notify:
+        - restart omero-server
