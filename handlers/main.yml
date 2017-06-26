@@ -12,16 +12,34 @@
   service:
     name: omero-server
     state: restarted
-  when: _omero_common_services_installed.results.0.stat.exists
 
 - name: restart omero-web
   become: yes
   service:
     name: omero-web
     state: restarted
-  when: _omero_common_services_installed.results.1.stat.exists
 
 - name: restart nginx
+  become: yes
+  service:
+    name: nginx
+    state: restarted
+
+- name: restart omero-server if installed
+  become: yes
+  service:
+    name: omero-server
+    state: restarted
+  when: _omero_common_services_installed.results.0.stat.exists
+
+- name: restart omero-web if installed
+  become: yes
+  service:
+    name: omero-web
+    state: restarted
+  when: _omero_common_services_installed.results.1.stat.exists
+
+- name: restart nginx if installed
   become: yes
   service:
     name: nginx
