@@ -18,4 +18,4 @@
         path: /tmp/notify-omero-server-handler
         state: directory
       notify:
-        - restart omero-server
+        - restart omero-server if installed
