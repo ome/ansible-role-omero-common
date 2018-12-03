@@ -1,5 +1,6 @@
 ---
-- hosts: all
+- name: Converge
+  hosts: all
   roles:
     - role: ansible-role-omero-common
 
@@ -19,3 +20,14 @@
         state: directory
       notify:
         - restart omero-server if installed
+
+  post_tasks:
+    - name: Check omero-common service variable
+      assert:
+        that:
+          # omero-server
+          - not _omero_common_services_installed.results.0.stat.exists
+          # omero-web
+          - not _omero_common_services_installed.results.1.stat.exists
+          # nginx
+          - not _omero_common_services_installed.results.2.stat.exists
