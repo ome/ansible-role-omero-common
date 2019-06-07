@@ -1,5 +1,6 @@
 ---
 galaxy_info:
+  role_name: omero_common
   author: ome-devel@lists.openmicroscopy.org.uk
   description: Common variables and tasks for OMERO applications
   company: Open Microscopy Environment
