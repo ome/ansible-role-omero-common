@@ -10,6 +10,7 @@
       file:
         path: /tmp/notify-systemd-handler
         state: directory
+        mode: 0755
       notify:
         - reload systemd
 
@@ -18,6 +19,7 @@
       file:
         path: /tmp/notify-omero-server-handler
         state: directory
+        mode: 0755
       notify:
         - restart omero-server if installed
 

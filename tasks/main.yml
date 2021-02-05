@@ -7,6 +7,7 @@
     path: "{{ omero_common_basedir }}"
     recurse: true
     state: directory
+    mode: 0755
 
 # This lets us make handlers conditional on existence of the service
 - name: omero-common | check if services installed
