@@ -5,7 +5,6 @@
   become: true
   file:
     path: "{{ omero_common_basedir }}"
-    recurse: true
     state: directory
     mode: 0755
 
