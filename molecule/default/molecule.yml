@@ -14,8 +14,8 @@ platforms:
     image: centos:7
   - name: omero-common-systemd
     image: centos/systemd:latest
-  - name: ubuntu-1804
-    image: ubuntu:18.04
+  - name: ubuntu-20.04
+    image: ubuntu:20.04
     # TODO: Find an Ubuntu Systemd container suitable for testing
 provisioner:
   name: ansible
