@@ -17,7 +17,7 @@
     # Should be a noop
     - name: test restart handler without omero-server
       file:
-        path: /tmp/notify-omero-server-handler
+        path: /etc/systemd/notify-omero-server-handler
         state: directory
         mode: 0755
       notify:
