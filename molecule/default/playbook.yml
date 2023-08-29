@@ -2,13 +2,13 @@
 - name: Converge
   hosts: all
   roles:
-    - role: ansible-role-omero-common
+    - role: ome.omero_common
 
   tasks:
 
     - name: test reload systemd handler
       file:
-        path: /tmp/notify-systemd-handler
+        path: /etc/systemd/system
         state: directory
         mode: 0755
       notify:
@@ -17,7 +17,7 @@
     # Should be a noop
     - name: test restart handler without omero-server
       file:
-        path: /tmp/notify-omero-server-handler
+        path: /etc/systemd/notify-omero-server-handler
         state: directory
         mode: 0755
       notify:

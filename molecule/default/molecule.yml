@@ -3,8 +3,10 @@ dependency:
   name: galaxy
 driver:
   name: docker
-lint:
-  name: yamllint
+lint: |
+    yamllint .
+    ansible-lint
+    flake8
 platforms:
   # These two containers test that the "reload systemd" handler can be
   # notified regardless of systemd status
@@ -12,8 +14,8 @@ platforms:
     image: centos:7
   - name: omero-common-systemd
     image: centos/systemd:latest
-  - name: ubuntu-1804
-    image: ubuntu:18.04
+  - name: ubuntu-20.04
+    image: ubuntu:20.04
     # TODO: Find an Ubuntu Systemd container suitable for testing
 provisioner:
   name: ansible
@@ -23,5 +25,3 @@ scenario:
   name: default
 verifier:
   name: testinfra
-  lint:
-    name: flake8
