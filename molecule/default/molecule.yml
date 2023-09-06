@@ -8,15 +8,15 @@ lint: |
     ansible-lint
     flake8
 platforms:
+  - name: rockylinux
+    image: rockylinux:9
+  - name: ubuntu-22.04
+    image: ubuntu:22.04
   # These two containers test that the "reload systemd" handler can be
   # notified regardless of systemd status
-  - name: omero-common
-    image: centos:7
-  - name: omero-common-systemd
-    image: centos/systemd:latest
-  - name: ubuntu-20.04
-    image: ubuntu:20.04
-    # TODO: Find an Ubuntu Systemd container suitable for testing
+  # TODO: Find an Ubuntu and RockyLinux Systemd  suitable for testing
+  # - name: omero-common-systemd # not sure what to do with that
+  #   image: centos/systemd:latest
 provisioner:
   name: ansible
   lint:
