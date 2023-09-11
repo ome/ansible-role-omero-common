@@ -12,11 +12,10 @@ platforms:
     image: rockylinux:9
   - name: ubuntu-22.04
     image: ubuntu:22.04
-  # These two containers test that the "reload systemd" handler can be
-  # notified regardless of systemd status
-  # TODO: Find an Ubuntu and RockyLinux Systemd  suitable for testing
-  # - name: omero-common-systemd # not sure what to do with that
-  #   image: centos/systemd:latest
+  - name: ubuntu-systemd-22.04
+    image: eniocarboni/docker-ubuntu-systemd:22.04
+  - name: rockylinux-systemd-22.04
+    image: eniocarboni/docker-rockylinux-systemd:9
 provisioner:
   name: ansible
   lint:
