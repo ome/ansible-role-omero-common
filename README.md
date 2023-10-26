@@ -2,7 +2,7 @@ OMERO Common
 ============
 
 [![Actions Status](https://github.com/ome/ansible-role-omero-common/workflows/Molecule/badge.svg)](https://github.com/ome/ansible-role-omero-common/actions)
-[![Ansible Role](https://img.shields.io/ansible/role/41042.svg)](https://galaxy.ansible.com/ome/omero_common/)
+[![Ansible Role](https://img.shields.io/badge/ansible--galaxy-omero_common-blue.svg)](https://galaxy.ansible.com/ui/standalone/roles/ome/omero_common/)
 
 Common variables and handlers for other OMERO application Ansible roles.
 
