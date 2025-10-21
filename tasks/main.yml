@@ -3,14 +3,14 @@
 
 - name: omero-common | create parent directory
   become: true
-  file:
+  ansible.builtin.file:
     path: "{{ omero_common_basedir }}"
     state: directory
     mode: 0755
 
 # This lets us make handlers conditional on existence of the service
 - name: omero-common | check if services installed
-  stat:
+  ansible.builtin.stat:
     path: "{{ item }}"
   check_mode: false
   register: _omero_common_services_installed
