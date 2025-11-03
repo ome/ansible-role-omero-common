@@ -7,7 +7,7 @@
   tasks:
 
     - name: test reload systemd handler
-      file:
+      ansible.builtin.file:
         path: /etc/systemd/system
         state: directory
         mode: 0755
@@ -16,7 +16,7 @@
 
     # Should be a noop
     - name: test restart handler without omero-server
-      file:
+      ansible.builtin.file:
         path: /etc/systemd/notify-omero-server-handler
         state: directory
         mode: 0755
@@ -25,7 +25,7 @@
 
   post_tasks:
     - name: Check omero-common service variable
-      assert:
+      ansible.builtin.assert:
         that:
           # omero-server
           - not _omero_common_services_installed.results.0.stat.exists
